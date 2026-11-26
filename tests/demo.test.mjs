@@ -10,7 +10,7 @@ test("Every synthetic resource satisfies the UI contract", () => {
   for (const [key, value] of Object.entries(demoDashboard().resources))
     assert.doesNotThrow(() => validateCerebro(key, value), key);
 });
-test("No upstream is contacted, even with production environment variables set", async () => {
+test("Dashboard is generated locally without outgoing network requests", async () => {
   const fetch = globalThis.fetch;
   globalThis.fetch = () => {
     throw new Error("Forbidden network");
@@ -83,7 +83,7 @@ test("Excel export contains only synthetic rows and a demo notice", async () => 
   );
   assert.ok(
     workbook
-      .getWorksheet("Mensual por vehículo")
+      .getWorksheet("Mensual por vehÃ­culo")
       .getColumn(1)
       .values.some((v) => String(v).startsWith("DEMO-")),
   );

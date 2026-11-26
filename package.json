@@ -10,7 +10,7 @@
     "build": "next build --webpack",
     "start": "next start --hostname 127.0.0.1",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint app tests"
   },
   "dependencies": {
