@@ -1,0 +1,140 @@
+.cerebroContent{max-width:1900px;font-size:14px;line-height:1.55}
+.cerebroContent .controlPanel{grid-template-columns:minmax(310px,.8fr) minmax(420px,1.4fr)}
+.cerebroPanel{margin-bottom:18px;padding:22px;box-shadow:var(--shadow-soft)}
+.cerebroPanel .panelHead{flex-wrap:wrap;align-items:center}
+.cerebroContent .kpis{margin-top:14px}
+.cerebroContent .kpi{min-width:0}
+.cerebroContent .kpi strong{font-size:clamp(19px,1.6vw,25px);line-height:1.4;overflow-wrap:anywhere}
+.cerebroContent .kpi small{display:block;line-height:1.6;font-size:12px}
+.cerebroPlateFilter{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:16px;color:var(--muted)}
+.cerebroPlateFilter label{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
+.cerebroPlateFilter select,.cerebroOpeningForm input,.cerebroOpeningForm select{border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--surface);color:var(--text);min-height:42px;font-size:14px}
+.cerebroPlateFilter>span{font-size:12px;max-width:650px}
+.cerebroCoverage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.cerebroCoverage>.cerebroNotice{margin-bottom:0}
+.cerebroCoverage>.cerebroNotice:first-child,.cerebroCoverage>.danger,.cerebroCoverage>.warning{grid-column:1/-1}
+.cerebroCoverage>.warning{order:1}
+.cerebroNotice{display:flex;gap:5px;flex-direction:column;padding:12px 16px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;background:var(--surface);color:var(--text-soft);font-size:13px;margin-bottom:8px;overflow-wrap:anywhere}
+.cerebroNotice b{color:var(--navy)}
+.cerebroNotice.warning{border-left-color:var(--orange);background:var(--orange-soft)}
+.cerebroNotice.danger{border-left-color:var(--red);background:color-mix(in srgb,var(--red) 7%,var(--surface))}
+.cerebroBadge{display:inline-block;line-height:1.4;padding:5px 8px;border-radius:7px;font-size:12px;font-weight:750;background:var(--blue-soft);color:var(--navy);white-space:normal}
+.cerebroBadge.good{color:var(--green);background:color-mix(in srgb,var(--green) 12%,var(--surface))}
+.cerebroBadge.danger{color:var(--red);background:color-mix(in srgb,var(--red) 12%,var(--surface))}
+.cerebroTable{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:10px}
+.cerebroTable table{width:100%;border-collapse:collapse;text-align:left}
+.cerebroTable th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;background:var(--surface-soft);color:var(--text-soft);padding:13px 12px;text-align:left;white-space:nowrap}
+.cerebroTable td{font-size:14px;padding:9px 10px;vertical-align:middle;border-top:1px solid var(--line);min-width:82px;max-width:350px;line-height:1.4}
+.cerebroTable td small{display:block;font-size:11px;line-height:1.6;color:var(--muted);max-width:290px;margin-top:4px;overflow-wrap:anywhere}
+.cerebroTable .numberCell{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cerebroTable :is(th,td).numberCell{padding-right:12px}
+.cerebroTable .numberCell small{white-space:normal}
+.cerebroTable tbody tr:hover{background:var(--surface-soft)}
+.cerebroTable button.invoiceLink{font-weight:800;background:none;border:0;color:var(--blue);cursor:pointer;padding:0;font-size:14px}
+.cerebroPagination{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;color:var(--muted);font-size:12px;flex-wrap:wrap}
+.cerebroPagination>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cerebroPagination button{font-size:12px;padding:8px 10px;min-height:36px}
+.cerebroContent button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.cerebroContent :is(button,input,select,a,summary):focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cerebroContent .secondary{display:inline-block;text-decoration:none;white-space:nowrap;font-size:13px}
+.cerebroContent details{margin:12px 0}
+.cerebroContent summary{cursor:pointer;color:var(--blue);font-weight:700;padding:6px 0}
+.cerebroContent pre{max-width:330px;max-height:200px;overflow:auto;font-size:11px;white-space:pre-wrap;word-break:break-word}
+.cerebroObservation{font-size:12px;max-width:320px;white-space:normal;color:var(--text-soft);margin-top:6px}
+.cerebroFacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cerebroFacts>div{padding:12px;border-bottom:1px solid var(--line);min-width:0}
+.cerebroFacts dt{font-size:12px;color:var(--muted)}
+.cerebroFacts dd{margin:5px 0 0;font-size:15px;font-weight:750;color:var(--navy);overflow-wrap:anywhere}
+.cerebroFacts dd small{display:block;font-size:11px;font-weight:500;color:var(--muted)}
+.cerebroOpeningForm{display:flex;flex-wrap:wrap;align-items:end;gap:12px}
+.cerebroOpeningForm label{display:grid;gap:5px;font-size:12px;color:var(--muted);min-width:130px}
+.cerebroOpeningForm input{width:170px}
+.cerebroMigration button{margin:6px 12px 10px 0}
+.cerebroModal{width:min(900px,95vw);max-height:90vh;overflow:auto}
+.cerebroModal header{display:flex;justify-content:space-between;gap:16px}
+.invoiceTechnical{border-top:1px solid var(--line);padding-top:8px}.invoiceTechnical p{font-size:12px;color:var(--muted)}.invoiceTechnical code{display:block;font-size:12px;font-weight:400;line-height:1.6;max-width:100%;overflow-wrap:anywhere;padding:12px;background:var(--surface-soft);border-radius:8px}
+.cerebroFootnote{color:var(--muted);font-size:12px}
+.cerebroCoverage{display:block;margin:0 0 16px}
+.coverageStatus{display:flex;align-items:center;gap:8px 24px;flex-wrap:wrap;color:var(--muted);font-size:13px;padding:3px 0 8px}
+.coverageGood{color:var(--green)}.coverageWarning{color:var(--orange)}
+.cerebroContent .kpi p{font-size:14px;letter-spacing:0;text-transform:none;color:var(--text-soft);font-weight:650}
+.dashboardVisuals{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start;gap:16px;margin:18px 0}
+.dashboardVisuals .panel{min-width:0;padding:22px;box-shadow:var(--shadow-soft)}
+.dashboardVisuals .panelHead{flex-wrap:wrap;align-items:center}
+.chartControls{display:flex;gap:12px;flex-wrap:wrap}.chartControls label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.dashboardVisuals select{max-width:100%;border:1px solid var(--line);border-radius:9px;min-height:38px;padding:7px 10px;background:var(--surface-soft);color:var(--text);font-size:14px}
+.vehicleBars{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.vehicleBarButton{display:grid;grid-template-columns:30px minmax(0,1fr) auto;column-gap:10px;row-gap:6px;text-align:left;width:100%;border:0;background:none;color:var(--text);padding:4px 0;cursor:pointer}
+.barRank{grid-row:1/3;display:grid;place-items:center;align-self:start;width:28px;height:28px;background:var(--blue-soft);border-radius:8px;color:var(--blue);font-size:13px;font-weight:750;margin-top:3px}
+.barVehicle{display:grid;gap:1px}.barVehicle strong{font-size:15px}.barVehicle>span{font-size:13px;color:var(--muted)}
+.barAmount{font-size:15px;font-weight:750;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vehicleBarTrack{grid-column:2/-1;height:6px;background:var(--line);border-radius:4px;overflow:hidden}
+.vehicleBarTrack>span{display:block;height:100%;background:var(--blue);border-radius:4px}
+.vehicleBarButton:hover .barVehicle strong{color:var(--blue)}
+.chartTextButton{border:0;background:none;padding:14px 0 0;color:var(--blue);font-size:14px;font-weight:700;cursor:pointer}
+.vehicleSpend{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:0 0 16px;border-bottom:1px solid var(--line)}
+.vehicleSpend strong{font-size:27px;color:var(--navy);font-variant-numeric:tabular-nums}.vehicleSpend>span{font-size:13px;color:var(--muted);max-width:140px}
+.sourceBars{display:grid;gap:14px;margin:18px 0 22px}.sourceBarRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;font-size:14px}.sourceBarRow strong{font-variant-numeric:tabular-nums}
+.sourceBarTrack{grid-column:1/-1;height:7px;border-radius:4px;background:var(--line);overflow:hidden}.sourceBarTrack>span{display:block;height:100%;border-radius:4px}.sourceBarTrack .blue{background:var(--blue)}.sourceBarTrack .orange{background:var(--orange)}.sourceBarTrack .slate{background:var(--muted)}
+.visualVehicle h3{font-size:16px;color:var(--navy);margin:0 0 10px}.vehicleFuelGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.vehicleFuelGrid>div{background:var(--surface-soft);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:3px;min-width:0}.vehicleFuelGrid span{font-size:13px;color:var(--muted)}.vehicleFuelGrid strong{font-size:17px;font-variant-numeric:tabular-nums;color:var(--navy);overflow-wrap:anywhere}
+.chartScope{font-size:13px;color:var(--muted);margin:12px 0 0}.dashboardSources{margin-top:18px}
+.cerebroContent .summaryMetrics{grid-template-columns:repeat(2,minmax(0,1fr));max-width:740px}
+.cerebroContent .generalMetrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.summaryScope{font-size:13px;color:var(--muted);margin:8px 0 14px}
+.summarySearchResults{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.summarySearchResults button{display:grid;gap:4px;text-align:left;padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft);color:var(--text);font-size:14px;cursor:pointer;min-width:0;overflow-wrap:anywhere}.summarySearchResults button:hover{border-color:var(--blue)}.summarySearchResults button span{font-size:12px;color:var(--muted)}
+.sourceFocused .evolutionSingle{grid-template-columns:1fr}.sourceFocused .evolutionReadout{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cerebroContent .generalMetrics.sourceMetrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:480px){.summarySearchResults{grid-template-columns:1fr}}
+.summaryGeneralCharts{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start;gap:16px;margin-bottom:18px}
+.summaryGeneralCharts>.panel,.summaryEvolution{padding:22px;min-width:0;box-shadow:var(--shadow-soft)}
+.summaryGeneralCharts .panelHead{flex-wrap:wrap}.summaryGeneralCharts .panelHead .summaryScope{margin:0}
+.summarySiteRows{display:grid;gap:18px}.summarySiteRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px 14px;padding-bottom:14px;border-bottom:1px solid var(--line)}.summarySiteRow>div:first-child{display:grid;gap:3px}.summarySiteRow>div>span{font-size:13px;color:var(--muted)}.summarySiteRow>strong{font-variant-numeric:tabular-nums}.summarySiteSources{grid-column:1/-1;display:grid;gap:6px}
+.summaryFuelTotals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.summaryFuelTotal{padding:14px;background:var(--surface-soft);border:1px solid var(--line);border-radius:10px;min-width:0}.summaryFuelTotal h3{font-size:15px;margin:0 0 8px}.summaryFuelTotal>strong{display:block;font-size:22px;line-height:1.35;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.summaryFuelTotal>b{display:block;font-size:14px;margin-top:6px}.summaryFuelTotal details{margin:8px 0 0;font-size:12px}.summaryFuelTotal summary{font-size:12px}.summaryFuelTotal dl{margin:8px 0 0}.summaryFuelTotal dd{margin:2px 0 8px;font-weight:650}.fuelUnknown{grid-column:1/-1}
+.summaryEvolution{margin-bottom:18px}.totalLegend:before{background:var(--navy)}.summaryTimeline{overflow-x:auto;max-width:100%;overscroll-behavior-inline:contain}.summaryColumns{display:flex;gap:20px;padding:6px 0 12px;min-width:max-content}.summaryMonth{width:120px;display:grid;grid-template-rows:auto 170px auto;gap:10px;text-align:center;font-variant-numeric:tabular-nums}.summaryMonth>strong{font-size:13px}.summaryMonth>span{font-size:13px;color:var(--text-soft)}.summaryMonthBars{display:flex;align-items:flex-end;justify-content:center;gap:8px;border-bottom:1px solid var(--line)}.summaryMonthBars>span{width:20px;border-radius:5px 5px 0 0;display:block}.summaryMonthBars .blue{background:var(--blue)}.summaryMonthBars .orange{background:var(--orange)}.summaryMonthBars .navy{background:var(--navy)}
+.summaryCashAlerts{display:grid;gap:10px}.summaryCashAlerts .cerebroNotice{margin-bottom:0}
+.summaryMonth{position:relative}.summaryMonth .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.evolutionMonthLabel{color:var(--text-soft);font-size:14px;text-transform:capitalize;padding:5px 11px;border-radius:8px;background:var(--surface-soft)}
+.evolutionSingle{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.evolutionSingle>div{display:grid;gap:8px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft);min-width:0}.evolutionSingle strong{font-size:24px;color:var(--navy);font-variant-numeric:tabular-nums}.evolutionSingle>div>span:first-child{font-size:14px;font-weight:700}.evolutionSingleTrack{height:6px;display:block;overflow:hidden;background:var(--line);border-radius:6px}.evolutionSingleTrack>i{display:block;height:100%;border-radius:6px}.evolutionSingle .blue i{background:var(--blue)}.evolutionSingle .orange i{background:var(--orange)}.evolutionSingle .navy i{background:var(--navy)}
+.evolutionPlot{background:var(--surface-soft);border:1px solid var(--line);border-radius:12px;overflow-x:auto;max-width:100%;overscroll-behavior-inline:contain}.evolutionPlot svg{display:block;width:100%;min-width:600px;height:auto;aspect-ratio:960/266}.evolutionGrid{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}.evolutionAxis{font-size:11px;fill:var(--muted);font-variant-numeric:tabular-nums}.evolutionLine{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.evolutionLine.blue{stroke:var(--blue)}.evolutionLine.orange{stroke:var(--orange)}.evolutionLine.navy{stroke:var(--navy);stroke-width:3.5}.evolutionPoint{fill:var(--surface);stroke-width:2}.evolutionPoint.blue{stroke:var(--blue)}.evolutionPoint.orange{stroke:var(--orange)}.evolutionPoint.navy{stroke:var(--navy)}.evolutionHitArea{fill:transparent}.evolutionPointGroup{cursor:pointer}.evolutionGuide{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 5;opacity:.5}.evolutionMonthText{font-size:12px;fill:var(--text-soft);font-weight:650}.evolutionPointGroup.selected .evolutionMonthText{fill:var(--blue);font-weight:800}.evolutionPointGroup:focus-visible{outline:none}.evolutionPointGroup:focus-visible .evolutionHitArea{stroke:var(--blue);stroke-width:2}
+.evolutionReadout{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 0;padding:14px;background:var(--surface-soft);border-radius:10px}.evolutionReadout>strong{align-self:center;text-transform:capitalize;font-size:15px}.evolutionReadout>span{display:grid;gap:4px;font-size:13px}.evolutionReadout b{font-size:16px;font-variant-numeric:tabular-nums}.evolutionReadout .blue>span{color:var(--blue)}.evolutionReadout .orange>span{color:var(--orange)}.evolutionReadout .navy>span{color:var(--navy)}
+.unclassifiedAmount{margin:0;font-size:14px;color:var(--text-soft)}.fuelPartialNote{margin:12px 0 0;font-size:13px;color:var(--orange)}.cashFuelCell small{display:block;font-size:11px;white-space:normal;max-width:85px;line-height:1.35;color:var(--orange);margin-top:4px}
+.summaryFuels .summaryFuelTotal details dl{font-size:14px;line-height:1.5}
+.summaryFuels .summaryFuelTotal details dd{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.dashboardVisuals.singleVisual{grid-template-columns:1fr}.singleVisual .fleetFuelGrid,.singleVisual .vehicleFuelGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.singleVisual .rankSource>span:last-child{min-width:160px}
+@media(max-width:800px){.singleVisual .fleetFuelGrid,.singleVisual .vehicleFuelGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.evolutionReadout{grid-template-columns:repeat(2,minmax(0,1fr))}.evolutionSingle strong{font-size:20px}}
+@media(max-width:480px){.evolutionSingle,.singleVisual .fleetFuelGrid,.singleVisual .vehicleFuelGrid{grid-template-columns:1fr}.singleMonthEvolution .panelHead{flex-wrap:wrap}.evolutionSingle strong{font-size:22px}.evolutionReadout b{font-size:14px}}
+.dashboardSkeleton{display:block;position:relative;animation:none}.skeletonStatus{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.dashboardSkeleton .kpi{display:grid;gap:10px;min-height:102px}.dashboardSkeleton .kpis{margin-top:0}.dashboardSkeleton .skeletonChart{height:auto;min-height:360px}.skeletonPeriod{display:block;min-width:0;width:100%;line-height:1}.skeletonPeriod .react-loading-skeleton{display:block}
+.skeletonChart,.skeletonEvolution{padding:22px;min-width:0}.skeletonRanking{display:grid;gap:20px;margin-top:24px}.skeletonRanking>div{display:grid;gap:7px}.skeletonFuelGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}.skeletonFuelGrid>div{display:grid;gap:8px;padding:14px;border:1px solid var(--line);border-radius:10px}.skeletonEvolution{display:grid;gap:22px;margin-bottom:18px}
+.skeletonTableTools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.skeletonTableHead{padding:12px;background:var(--surface-soft)}.skeletonTableRow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:14px 12px;border-bottom:1px solid var(--line)}
+@media(max-width:640px){.skeletonChart,.skeletonEvolution{padding:16px}.skeletonTableTools>span:first-child{min-width:0;max-width:70%}.skeletonTableTools>span:first-child .react-loading-skeleton{max-width:100%}.skeletonTableRow{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(prefers-reduced-motion:reduce){.dashboardSkeleton .react-loading-skeleton::after,.skeletonPeriod .react-loading-skeleton::after{animation:none}}
+@media(max-width:1100px){.summaryGeneralCharts{grid-template-columns:1fr}}
+@media(max-width:640px){.cerebroContent .generalMetrics{grid-template-columns:repeat(2,minmax(0,1fr))}.summaryGeneralCharts>.panel,.summaryEvolution{padding:16px}.summaryFuelTotal>strong{font-size:20px}}
+@media(max-width:360px){.cerebroContent .generalMetrics,.cerebroContent .generalMetrics.sourceMetrics,.summaryFuelTotals{grid-template-columns:1fr}}
+.tableControls{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:0 0 12px;flex-wrap:wrap}
+.vehicleTabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.vehicleTabs button{background:var(--surface);color:var(--text-soft);border:1px solid var(--line);border-radius:9px;font-size:14px;font-weight:700;padding:11px 16px;cursor:pointer;min-height:42px}
+.vehicleTabs button[aria-selected=true]{background:var(--blue-soft);color:var(--blue);border-color:var(--blue)}
+.productGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.productBreakdown{margin-bottom:18px}
+.productSources{margin:12px 0 0}.productSources>div{border-top:1px solid var(--line);padding-top:9px;margin-top:9px}.productSources dt{font-size:13px;color:var(--text-soft)}.productSources dd{display:grid;gap:4px;margin:5px 0 0;font-size:14px;overflow-wrap:anywhere}.productSources dd span{font-size:13px;color:var(--muted)}
+.comparisonControls{display:flex;justify-content:flex-end;margin:0 0 12px}.comparisonControls label{display:grid;gap:6px;font-size:13px;color:var(--text-soft)}.comparisonControls select{min-height:40px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--text);padding:8px 12px}
+.sourceDetail{display:grid;gap:8px;min-width:240px;max-height:320px;overflow:auto;font-size:13px}.sourceDetail>div{padding:6px 0;border-bottom:1px solid var(--line)}.sourceDetail dt{color:var(--muted);font-size:11px}.sourceDetail dd{margin:3px 0 0;overflow-wrap:anywhere}.cerebroTable td small.xmlCorrection{color:var(--orange);font-size:12px}
+@media(max-width:1000px){.productGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.productGrid{grid-template-columns:1fr}.vehicleTabs{gap:6px}.vehicleTabs button{padding:10px;font-size:13px}.comparisonControls{justify-content:stretch}.comparisonControls label{width:100%}}
+.tableControls input,.tableControls select{background:var(--surface-soft);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:38px;font-size:14px}
+.tableControls input{width:min(320px,100%);min-width:0}.tableControls label{display:flex;gap:10px;align-items:center;color:var(--text-soft);font-size:14px}
+.chartLegend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;margin-bottom:14px}.chartLegend span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px}.redcoltLegend:before{background:var(--blue)}.cashLegend:before{background:var(--orange)}
+.rankSources{grid-column:2/-1;display:grid;gap:5px}.rankSource{display:grid;grid-template-columns:minmax(20px,1fr) auto;gap:10px;align-items:center;font-size:12px;color:var(--text-soft)}.rankSource .sourceBarTrack{grid-column:auto;height:5px}.rankSource>span:last-child{min-width:140px;text-align:right;font-variant-numeric:tabular-nums}
+.vehicleFuelGrid b{font-size:16px;color:var(--navy);font-variant-numeric:tabular-nums}
+.fleetFuelGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fleetFuelCard{min-width:0;background:var(--surface-soft);border:1px solid var(--line);border-radius:10px;padding:12px}
+.fleetFuelCard h3{display:flex;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:16px}.fleetFuelCard h3>span{font-size:13px;font-weight:500;color:var(--muted)}
+.fleetFuelScroll{max-height:215px;overflow:auto;scrollbar-width:thin}.fleetFuelCard table{width:100%;min-width:0;border-collapse:collapse;font-variant-numeric:tabular-nums}.fleetFuelCard th,.fleetFuelCard td{font-size:14px;text-align:right;padding:7px 3px;white-space:nowrap;border-bottom:1px solid var(--line);letter-spacing:normal;text-transform:none}.fleetFuelCard th:first-child{text-align:left}.fleetFuelCard thead th{font-weight:650;font-size:12px;position:sticky;top:0;background:var(--surface-soft);z-index:1}.fleetFuelCard .fuelRedcolt{color:var(--blue)}.fleetFuelCard .fuelCash{color:var(--orange)}
+.fuelPlateButton{padding:0;background:none;border:0;color:var(--text);font-size:13px;font-weight:700;cursor:pointer}.fuelPlateButton:hover{color:var(--blue)}.fuelEmpty{font-size:13px;color:var(--muted);margin:8px 0}
+@media(max-width:480px){.fleetFuelGrid{grid-template-columns:1fr}.fleetFuelCard th,.fleetFuelCard td,.fuelPlateButton{font-size:14px}.fleetFuelCard thead th{font-size:12px}}
+@media(max-width:1300px){.dashboardVisuals{grid-template-columns:1fr}}
+@media(max-width:640px){.dashboardVisuals .panel{padding:16px}.barAmount{font-size:14px}.coverageStatus{font-size:12px;gap:5px 16px}.vehicleSpend strong{font-size:24px}.chartControls{width:100%}.vehicleFuelGrid strong{font-size:16px}}
+@media(max-width:1000px){.cerebroCoverage{grid-template-columns:1fr}}
+@media(max-width:1150px){.cerebroContent .controlPanel{grid-template-columns:1fr}.cerebroContent .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.cerebroFacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.shell:has(.cerebroContent){grid-template-columns:1fr}.shell:has(.cerebroContent) .sidebar{position:relative;height:auto;padding:12px;overflow:visible}.shell:has(.cerebroContent) .brand{height:48px;margin:0 0 8px}.shell:has(.cerebroContent) .sidebar nav{display:flex;overflow-x:auto;gap:6px;padding-bottom:8px}.shell:has(.cerebroContent) .navItem{flex:0 0 auto;padding:8px;font-size:13px;white-space:nowrap}.shell:has(.cerebroContent) .sidebarFoot{padding:8px 0 0}.shell:has(.cerebroContent) .sideLabel,.shell:has(.cerebroContent) .sidebarToggle{display:none}.cerebroContent{padding:18px 10px;max-width:100vw}.cerebroContent .filterBlock{grid-template-columns:1fr 1fr}.cerebroContent .filterBlock label:last-child{grid-column:1/-1}.cerebroContent .kpis{grid-template-columns:1fr 1fr;gap:8px}.cerebroContent .kpi{padding:12px}.cerebroPanel{padding:14px}.cerebroFacts{grid-template-columns:1fr 1fr}.cerebroPlateFilter{gap:8px}.cerebroContent .topbar{gap:12px}.cerebroContent .topbar h1{font-size:28px}.cerebroContent .eyebrow{font-size:9px}.cerebroContent .primary{font-size:12px}.cerebroContent .periodBlock{min-width:0}.cerebroOpeningForm label{width:100%}.cerebroOpeningForm input{width:100%}.cerebroPagination>div{gap:6px}.sidebarCollapsed:has(.cerebroContent) .navItem{font-size:13px}.sidebarCollapsed:has(.cerebroContent) .navItem>span{display:inline-grid}}
+@media(max-width:360px){.cerebroContent .kpis{grid-template-columns:1fr}.cerebroContent .filterBlock{grid-template-columns:1fr}.cerebroContent .filterBlock label:last-child{grid-column:auto}}

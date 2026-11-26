@@ -1,0 +1,86 @@
+// Dashboard contract preserved from the original UI; values in this edition are synthetic.
+export type Amount = number | null;
+export type Period = { desde: string; hasta: string; mes_en_curso: string; datos_al: string };
+export type Coverage = { meses_sin_gasonet: string[]; meses_gasonet_libro_anual: string[]; advertencia: string | null; notas: { soles_por_km: string; km_por_galon: string } };
+export const summaryFields = ['vehiculos', 'recorrido_km', 'recorrido_parcial_km', 'gasonet_cargas', 'gasonet_soles', 'caja_chica_soles', 'otros_soles', 'gasto_total', 'soles_por_km', 'galones_gasolina', 'galones_diesel', 'galones_glp', 'm3_gnv'] as const;
+export type SummaryTotals = Record<typeof summaryFields[number], Amount>;
+export const productCodes = ['GASOLINA PREMIUM', 'GASOLINA REGULAR', 'GASOLINA', 'DIESEL', 'GLP', 'GNV', 'NO_IDENTIFICADO'] as const;
+export type Product = typeof productCodes[number];
+export const productFields = ['gasonet_cantidad', 'gasonet_soles', 'caja_chica_cantidad', 'caja_chica_soles', 'caja_chica_sin_cantidad', 'cantidad_total', 'soles_total'] as const;
+export type ProductTotals = Record<typeof productFields[number], Amount> & { unidad: 'GAL' | 'M3' | null };
+export type SummaryFuel = ProductTotals & { combustible: 'GASOLINA' | 'DIESEL' | 'GLP' | 'GNV' | 'NO_IDENTIFICADO' };
+export type SummaryProduct = ProductTotals & { producto: Product };
+export type VehicleProduct = SummaryProduct & { placa: string };
+export const summaryCashFields = ['sumable_soles', 'sumable_lineas', 'sin_vehiculo_soles', 'en_revision_lineas', 'en_revision_soles', 'rendido_dos_veces_soles', 'excluido_soles'] as const;
+export type CashStatus = 'PROVISIONAL' | 'CONCILIADO' | 'MONTO_DIFERENTE' | 'REVISAR_SEDE' | 'REVISAR_CLASIFICACION' | 'REVISAR_CONFLICTO' | 'REVISAR_FECHA' | 'RENDIDO_DOS_VECES' | 'EXCLUIDO';
+export type PlateStatus = 'EXACTA' | 'CORREGIDA' | 'ERP' | 'APODO' | 'EXTERNA' | 'SIN_PLACA';
+export type OdometerStatus = 'COMPLETO' | 'SIN_AVANCE' | 'PENDIENTE_KM_FINAL' | 'FALTA_KM_INICIAL' | 'POR_REVISAR' | 'SIN_ODOMETRO';
+export type GasonetSource = 'SHAREPOINT' | 'N8N' | 'LIBRO_ANUAL';
+export type Vehicle = { placa: string; sede: string | null; area: string | null; conductor: string | null; combustibles: string[]; activo: boolean; notas: string | null; variantes: string[] };
+export type MonthlyRow = {
+  placa: string; periodo: string; sede: string | null; area: string | null; conductor: string | null; activo: boolean;
+  km_inicio: Amount; km_fin: Amount; recorrido_km: Amount; recorrido_parcial_km: Amount; estado_odometro: OdometerStatus;
+  gasonet_cargas: Amount; gasonet_soles: Amount; galones_gasolina: Amount; galones_diesel: Amount; galones_glp: Amount; m3_gnv: Amount;
+  soles_gasolina: Amount; soles_diesel: Amount; soles_glp: Amount; soles_gnv: Amount;
+  caja_chica_lineas: Amount; caja_chica_soles: Amount; otros_soles: Amount; gasto_total: Amount; observaciones: string | null;
+  caja_galones_gasolina: Amount; caja_galones_diesel: Amount; caja_galones_glp: Amount; caja_m3_gnv: Amount;
+  caja_chica_lineas_sin_cantidad: Amount;
+  soles_por_km: Amount; km_por_galon: Amount; km_por_galon_base: 'GALONES' | 'GNV_EQUIVALENTE' | 'EQUIVALENTE' | null;
+  galones_equivalentes: Amount; combustibles_del_mes: string[]; calidad: string;
+};
+export type OdometerRow = {
+  placa: string; periodo: string; km_inicio: Amount; fuente_inicio: string | null; km_fin: Amount; fuente_fin: string | null;
+  estado: OdometerStatus; recorrido: Amount; recorrido_parcial: Amount; recorrido_entre_fotos: Amount; fotos: Amount;
+  ultima_foto_km: Amount; ultima_foto_fecha: string | null; fotos_descartadas: Amount;
+};
+export type GasonetRow = {
+  id: number | string; fecha: string; periodo: string; placa_original: string | null; placa: string | null; estado_placa: PlateStatus;
+  combustible: string | null; tipo: string | null; producto: Product | null; unidad: 'GAL' | 'M3' | null; cantidad: Amount; total: Amount;
+  estacion: string | null; portador: string | null; precio_unitario: Amount; ticket: string | null;
+  km_digitado: Amount; odometro_inicio: Amount; odometro_fin: Amount;
+  alerta_km: 'KM_MAYOR_AL_CIERRE_DEL_MES' | 'KM_MENOR_AL_INICIO_DEL_MES' | 'SIN_KM' | null;
+  fuente: GasonetSource; sede: string | null; area: string | null; identificador: string | null; detalle: Record<string, unknown>;
+};
+export type CashRow = {
+  id?: number | string; fecha_comprobante: string; fecha_columna: string; periodo_contable: string | null;
+  importe_total: Amount; importe_rendido: Amount; base: Amount; igv: Amount; sede: string | null; sede_fuente: 'CAJA' | 'VEHICULO' | null;
+  cantidad: Amount; unidad: string | null; combustible: string | null; producto: Product | null;
+  combustible_fuente: 'XML' | 'DESCRIPCION' | 'PROVEEDOR' | 'FICHA' | null; ruc_proveedor: string | null;
+  factura_fecha: string | null; factura_total: Amount;
+  validacion_xml: 'SIN_XML' | 'XML_COINCIDE' | 'XML_CORRIGE' | 'XML_SUMA_DISTINTA'; nota_xml: string | null;
+  area: string | null; placa_original: string | null; placa_normalizada: string | null; estado_placa: PlateStatus; apodo: string | null;
+  estado: CashStatus; validacion_documental: 'SIN_ERP' | 'ERP_COINCIDE' | 'ERP_COINCIDE_CON_AJUSTE' | 'ERP_MONTO_DIFERENTE' | 'ERP_SIN_TOTAL';
+  origen: string; archivo: string; ruta: string; motivo_revision: string | null; documento: string; documento_lineas: Amount;
+  documento_suma_lineas: Amount; documento_total_erp: Amount; documento_base_erp: Amount; documento_igv_erp: Amount;
+  ruc: string; proveedor: string | null; descripcion: string | null; ceco: string | null; hoja: string; fila: number; flags: string[];
+  ultima_sincronizacion: string | null;
+};
+export type PendingFile = { archivo: string; ruta: string; estado: string; cobertura: 'PENDIENTE' | 'CUBIERTO' | 'SIN_COMPROBANTE'; motivo_revision: string | null; filas_sin_interpretar: Amount; ultima_sincronizacion: string | null };
+export type CashTotals = { importe_total_sumable: Amount; lineas_sumables: Amount; por_estado: { estado: CashStatus; lineas: Amount; importe_total: Amount }[]; cobertura_completa: boolean; advertencia: string | null };
+export type CashCoverage = { sync_en_curso: boolean; ultima_sincronizacion: string | null; archivos_por_estado: Record<string, number>; archivos_pendientes: Amount; archivos_con_error: Amount };
+export type ImportRow = { periodo: string; origen: GasonetSource; importado_en: string | null; filas: Amount; total: Amount; archivo: string | null; [field: string]: unknown };
+export type Opening = { placa: string; periodo: string; fecha: string; km: number; registrado_por: string; actualizado_en: string };
+export type OpeningInput = Pick<Opening, 'placa' | 'periodo' | 'fecha' | 'km' | 'registrado_por'>;
+export type ForeignPlateRow = { origen: 'GASONET' | 'CAJA_CHICA'; placa_original: string | null; estado_placa: PlateStatus; registros: Amount; soles: Amount; desde: string | null; hasta: string | null };
+export type SyncState = { sync_en_curso: boolean; archivos_por_estado: Record<string, number>; archivos_pendientes: Amount; archivos_con_error: Amount; ultima_sync_ok: string | null; ultimo_error: string | null; ultimas_corridas: { id: number; trigger: string; status: string; started_at: string; finished_at: string | null; stats: Record<string, unknown>; error: string | null }[] };
+export type ResourceMap = {
+  resumen: { ok: true; periodo: Period; cobertura: Coverage; global: SummaryTotals; por_sede: (SummaryTotals & { sede: string })[]; por_mes: (SummaryTotals & { periodo: string })[]; por_sede_mes: (SummaryTotals & { sede: string; periodo: string })[]; por_combustible: SummaryFuel[]; por_producto: SummaryProduct[]; por_vehiculo_producto: VehicleProduct[]; caja_chica: Record<typeof summaryCashFields[number], Amount> };
+  mensual: { ok: true; periodo: { desde: string; hasta: string; mes_en_curso: string; datos_al: string }; rows: MonthlyRow[]; cobertura: { meses_sin_gasonet: string[]; meses_gasonet_libro_anual: string[]; advertencia: string | null; notas: { soles_por_km: string; km_por_galon: string } } };
+  odometro: { ok: true; rows: OdometerRow[] };
+  gasonet: { ok: true; rows: GasonetRow[] };
+  caja_chica: { ok: true; rows: CashRow[]; totales: CashTotals; pendientes: PendingFile[]; archivos_respaldo: PendingFile[]; cobertura: CashCoverage };
+  vehiculos: { ok: true; vehiculos: Vehicle[] };
+  sin_flota: { ok: true; rows: ForeignPlateRow[] };
+  importaciones: { ok: true; importaciones: ImportRow[] };
+  aperturas: { ok: true; aperturas: Opening[] };
+  estado: SyncState;
+};
+export type Resource = keyof ResourceMap;
+export type DashboardPayload = {
+  ok: boolean; mode: 'cerebro'; resources: Partial<ResourceMap>; errors: Partial<Record<Resource, string>>;
+  requested: { from: string | null; to: string | null; sede: string | null; placa: string | null };
+  fetchedAt: string; canEditOpenings: boolean;
+};
+export const resources: Resource[] = ['estado', 'resumen', 'mensual', 'odometro', 'gasonet', 'caja_chica', 'vehiculos', 'sin_flota', 'importaciones', 'aperturas'];
+export const cashStatuses: CashStatus[] = ['PROVISIONAL', 'CONCILIADO', 'MONTO_DIFERENTE', 'REVISAR_SEDE', 'REVISAR_CLASIFICACION', 'REVISAR_CONFLICTO', 'REVISAR_FECHA', 'RENDIDO_DOS_VECES', 'EXCLUIDO'];
+export const reviewStatuses: CashStatus[] = ['RENDIDO_DOS_VECES', 'REVISAR_FECHA', 'REVISAR_SEDE', 'REVISAR_CLASIFICACION', 'REVISAR_CONFLICTO', 'MONTO_DIFERENTE'];
