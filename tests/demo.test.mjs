@@ -83,7 +83,7 @@ test("Excel export contains only synthetic rows and a demo notice", async () => 
   );
   assert.ok(
     workbook
-      .getWorksheet("Mensual por vehÃ­culo")
+      .getWorksheet("Mensual por vehículo")
       .getColumn(1)
       .values.some((v) => String(v).startsWith("DEMO-")),
   );
